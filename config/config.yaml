@@ -1,1 +1,25 @@
+# IP Intelligence Tool Configuration
+tool:
+  name: "IP Intelligence Tool"
+  version: "2.0.0"
+  author: "Abdu (DevAbdu-code)"
 
+services:
+  geolocation:
+    api: "http://ip-api.com/json/"
+    timeout: 10
+  
+  threat_intel:
+    abuseipdb:
+      enabled: true
+      api_key: ""  # Add your API key if you have one
+      timeout: 10
+
+output:
+  default_format: "table"
+  supported_formats: ["table", "json", "csv"]
+
+cache:
+  enabled: true
+  ttl: 3600  # 1 hour
+  max_size: 1000
