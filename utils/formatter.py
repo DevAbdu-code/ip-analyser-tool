@@ -18,12 +18,12 @@ class OutputFormatter:
             return
         
         print("\n" + "=" * 60)
-        print(f"📊 IP Analysis Results")
+        print(f" IP Analysis Results")
         print("=" * 60)
         
         # Display basic info
-        print(f"\n🔍 IP: {data.get('ip', 'N/A')}")
-        print(f"📅 Timestamp: {data.get('timestamp', 'N/A')}")
+        print(f"\n IP: {data.get('ip', 'N/A')}")
+        print(f" Timestamp: {data.get('timestamp', 'N/A')}")
         
         # Display analysis sections
         analysis = data.get('analysis', {})
@@ -42,25 +42,25 @@ class OutputFormatter:
     
     def _print_geo(self, geo: Dict):
         """Print geolocation data"""
-        print("\n📍 Geolocation:")
+        print("\n Geolocation:")
         if geo.get('success'):
             print(f"  Country: {geo.get('country', 'N/A')}")
             print(f"  City: {geo.get('city', 'N/A')}")
             print(f"  ISP: {geo.get('isp', 'N/A')}")
             print(f"  Coordinates: {geo.get('latitude', 'N/A')}, {geo.get('longitude', 'N/A')}")
         else:
-            print(f"  ❌ Error: {geo.get('error', 'Unknown error')}")
+            print(f"   Error: {geo.get('error', 'Unknown error')}")
     
     def _print_network(self, network: Dict):
         """Print network data"""
-        print("\n🌐 Network:")
+        print("\n Network:")
         print(f"  Class: {network.get('class', 'N/A')}")
         print(f"  Type: {network.get('type', 'N/A')}")
         print(f"  Binary: {network.get('binary', 'N/A')}")
     
     def _print_dns(self, dns: Dict):
         """Print DNS data"""
-        print("\n📡 DNS:")
+        print("\n DNS:")
         reverse_dns = dns.get('reverse_dns')
         if reverse_dns:
             print(f"  Reverse DNS: {reverse_dns}")
@@ -69,21 +69,21 @@ class OutputFormatter:
     
     def _print_whois(self, whois: Dict):
         """Print WHOIS data"""
-        print("\n📋 WHOIS:")
+        print("\n WHOIS:")
         if whois.get('success'):
             registrar = whois.get('registrar', 'N/A')
             print(f"  Registrar: {registrar}")
             print(f"  Organization: {whois.get('org', 'N/A')}")
             print(f"  Country: {whois.get('country', 'N/A')}")
         else:
-            print(f"  ❌ Error: {whois.get('error', 'Unknown error')}")
+            print(f"   Error: {whois.get('error', 'Unknown error')}")
     
     def _print_threat(self, threat: Dict):
         """Print threat intelligence data"""
         print("\n🛡️ Threat Intelligence:")
         print(f"  Threat Score: {threat.get('threat_score', 0)}")
         print(f"  Total Reports: {threat.get('total_reports', 0)}")
-        print(f"  Malicious: {'⚠️ YES' if threat.get('malicious') else '✅ NO'}")
+        print(f"  Malicious: {'⚠️ YES' if threat.get('malicious') else ' NO'}")
     
     def to_csv(self, data: Dict[str, Any]) -> str:
         """Convert results to CSV format"""
